@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block css %}
+	<style>
+.profile{
+	background-color: #46629E;
+	border-style: solid;
+	border-color: #9e8246;
+	color: #9e8246;
+}
+	</style>	
+{% endblock %}
+{% block main %}
+	<div class = "container">
+		{% for user in users %}
+			<a href="{{url_for('preview' , user_id=user.user_id)}}">
+				<div class= "row profile">
+					<div class="col-xs-2">
+						<img src="{{url_for('static' , file=user.file_location)}}" class="img img-responsive" width="90px" height="90px"/>
+					</div>
+					<div class="col-xs-6">
+					{{user.firstname + " " + user.lastname}}
+					</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}

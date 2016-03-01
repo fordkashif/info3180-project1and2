@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="/static/favicon.ico">
+
+		<!-- HTML5 shim, for IE 6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		{% block css %}{% endblock %}
+
+	</head>
+
+	<body>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				<div class="alert alert-success">
+					 <ul>
+						 {% for message in messages %}
+							 <li> {{message}}</li>
+						 {% endfor %}
+					 </ul>
+				</div>
+			{% endif %}
+		{%endwith%}
+
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="{{url_for('new')}}">
+						<button class="btn btn-primary">
+							New Profile
+						</button>
+					</a>
+				</div>
+			</div>
+		</nav>
+		<div id="main" role="main">
+			{% block main %}{% endblock %}
+		</div>
+
+
+		<!-- Additional JavaScript libraries and plugins... -->
+		{% block js %}{% endblock %}
+
+
+	</body>
+</html>

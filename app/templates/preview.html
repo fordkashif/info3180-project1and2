@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block main %}
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-3">
+				<img class="img-responsive" src="{{url_for('static',filename=user.file_location)}}"/>
+			</div>	 
+			<div class="col-xs-6">
+				<div class="well well-sm">
+					{{user.firstname + " " + user.lastname}}
+				</div>
+				<div class="info-block">
+					<div class="well well-sm info-well">
+						{{'Profile added on ' + date}}
+					</div>
+					<div class="well well-lg info-well">
+						Username: {{user.username}}<br>
+						ID: {{user.user_id}}<br>
+						Sex: {{user.sex.capitalize()}}<br>
+						Age: {{user.age}}<br>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+{% endblock %}
